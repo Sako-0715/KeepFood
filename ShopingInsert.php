@@ -2,7 +2,7 @@
 class ShopingInsert
 {
    public function runApi($row){
-error_log;
+error_log("sakou");
     $id = $row['ID'];
     $janl =  $row['Janl'];
     $price = $row['Price'];
