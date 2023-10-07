@@ -2,7 +2,7 @@
 class ShopingInsert
 {
    public function runApi($row){
-error_log("sakou");
+
     $id = $row['ID'];
     $janl =  $row['Janl'];
     $price = $row['Price'];
@@ -19,7 +19,6 @@ error_log("sakou");
 
     $sql = "INSERT INTO SHOPING_CONTENTS (ID,JANL,PRICE,PRODACTNAME,DATE) VALUES ('$id','$janl','$price','$prodact','$date')";
     $db->query($sql);
-   error_log(print_r($sql,true));
     
 }
 
