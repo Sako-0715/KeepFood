@@ -1,5 +1,6 @@
 <?php
-    $db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
+
+$db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
 $sql = "SELECT * FROM SHOPING_CONTENTS";
 $result = $db->query($sql);
 
@@ -11,7 +12,7 @@ if ($result) {
         $dataArray[] = $row;
     }
     $js = json_encode($dataArray);
-    error_log(print_r($js,true));
+    error_log(print_r($js, true));
     echo $js;
 } else {
     error_log("クエリ実行エラー: " . $db->error);

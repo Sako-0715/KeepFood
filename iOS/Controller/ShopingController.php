@@ -1,7 +1,7 @@
 <?php
-require_once dirname(__FILE__). '/ShopingInsert.php';
+// require_once dirname(__FILE__). '/Model/ShopingContent.php';
 
 
-$row = $_POST;
-$shopinginsert = new ShopingInsert();
-$shopinginsert->runApi($row);
+// $row = $_POST;
+// $shopinginsert = new ShopingContent();
+// $shopinginsert->runApi($row);
