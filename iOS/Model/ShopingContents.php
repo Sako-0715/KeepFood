@@ -10,7 +10,10 @@ class ShopingContents
         $prodact =  $row['Prodact'];
         $date = $row['date'];
         $db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
-        $sql = "INSERT INTO SHOPING_CONTENTS (ID,JANL,PRICE,PRODACTNAME,DATE) VALUES ('$id','$janl','$price','$prodact','$date')";
+        $sql = "INSERT INTO SHOPING_CONTENTS ";
+        $sql .= "(ID,JANL,PRICE,PRODACTNAME,DATE) ";
+        $sql .= "VALUES ";
+        $sql .= "('$id','$janl','$price','$prodact','$date')";
         $db->query($sql);
     }
     public function getShopdata()
