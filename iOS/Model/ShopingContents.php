@@ -16,11 +16,42 @@ class ShopingContents
         $sql .= "('$id','$janl','$price','$prodact','$date')";
         $db->query($sql);
     }
+
+    /* 投稿履歴を全て取得する
+    */
     public function getShopdata()
+    {
+        $db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
+        $sql = "SELECT ID,JANL,PRICE,DATE FROM SHOPING_CONTENTS";
+        $result = $db->query($sql);
+
+        $dataArray = [];
+
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $row['PRICE'] = intval($row['PRICE']);
+                $dataArray[] = $row;
+            }
+            $js = json_encode($dataArray);
+            error_log(print_r($js, true));
+            echo $js;
+        } else {
+            error_log("クエリ実行エラー: " . $db->error);
+        }
+
+        $db->close();
+    }
+
+    /* ジャンルごとで全て取得する
+    * $janl String  
+    */
+    public function getJanlShopdata($janl)
     {
 
         $db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
-        $sql = "SELECT * FROM SHOPING_CONTENTS";
+        $sql = "SELECT ID,JANL,PRICE,DATE FROM SHOPING_CONTENTS ";
+        $sql .= "WHERE JANL = ";
+        $sql .= "$janl";
         $result = $db->query($sql);
 
         $dataArray = [];
