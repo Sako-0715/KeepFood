@@ -22,7 +22,7 @@ class ShopingContents
     public function getShopdata()
     {
         $db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
-        $sql = "SELECT ID,JANL,PRICE,DATE FROM SHOPING_CONTENTS";
+        $sql = "SELECT ID,JANL,PRICE,PRODACTNAME,DATE FROM SHOPING_CONTENTS";
         $result = $db->query($sql);
 
         $dataArray = [];
