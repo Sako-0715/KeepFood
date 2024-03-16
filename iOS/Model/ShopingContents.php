@@ -33,7 +33,6 @@ class ShopingContents
                 $dataArray[] = $row;
             }
             $js = json_encode($dataArray);
-            error_log(print_r($js, true));
             echo $js;
         } else {
             error_log("クエリ実行エラー: " . $db->error);
